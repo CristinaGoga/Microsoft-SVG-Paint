@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create your SVG</title>
+        <link rel="stylesheet" href="6_1084_GOGA_CRISTINA_MARIA.css">
+    </head>
+
+    <body>
+        <div class="board">
+            <!-- Tabla pentru desenare  -->
+            <svg id="editor">
+                <svg id="elemente"> </svg>
+                <rect id="selectieDreptunghi" width="0" height="0" style="display:none;"></rect>
+                <ellipse id="selectieElipsa" style="display: none;"></ellipse>
+                <line id="selectieLinie" style="display: none;"></line>
+            </svg>
+
+
+            <!-- Instrumente de desen -->
+            <div class="tools">
+                <!--Selector pentru background color -->
+                <select onchange="bg_color(this.value)">
+                    <option value="">Background &#127912</option>
+                    <option value="blue">Blue</option>
+                    <option value="red"> Red </option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="pink">Pink</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>  
+                </select>
+                <!-- Buton pentru stergerea tablei -->
+                <button type="button" class="button" style="--clr:#ffc0cb" onclick="clearSVG()">Clear SVG</button>
+
+
+                <!-- Buton pentru salvarea sub format SVG si PNG -->
+                <!-- <a href="" class="button" style="--clr:#ffc0cb" id="link" download="image.png" >Save SVG</a> -->
+                <button type="button" class="button" style="--clr:#ffc0cb" onclick="saveSVG()" >Save SVG</button>
+
+
+                <button type="button" class="button" style="--clr:#ffc0cb"  onclick="savePNG()" >Save PNG</button>
+
+
+                <button type="button" class="button" style="--clr:#ffc0cb" onclick="undoSVG()"> Undo SVG</button>
+
+                <!-- Butoane pentru forme -->
+                <button type="button" class="button" id="dreptunghi" onclick="setDreptunghi()" style="--clr:#ffc0cb">&#9645</button>
+                <button type="button" class="button" id="linie" onclick="setLinie()" style="--clr:#ffc0cb"> &#9644</button>
+                <button type="button" class="button" id="elipsa" onclick="setElipsa()" style="--clr:#ffc0cb">&#9711</button>
+
+
+                <!-- Color picker + 4 culori pentru forme  -->
+                <div onclick="setareCuloarePortocaliu()" class="color-field" style="background: #ffdfba"></div>
+                <div onclick="setareCuloareGalben()" class="color-field" style="background: #ffffba"></div>
+                <div onclick="setareCuloareVerde()" class="color-field" style="background: #baffc9"></div>
+                <div onclick="setareCuloareBleu()" class="color-field" style="background: #bae1ff"></div>
+                <input type="color" id="color-picker", onchange="update_color(this.value)">
+
+
+                <!-- Range pentru grosimea liniei -->
+                <input type="range" min="1" max="100" step = "1" value = "50" id="pen-range"  onchange="update_thickness(this.value)">
+
+            </div>
+        </div>
+
+        <script src="6_1084_GOGA_CRISTINA_MARIA.js"></script>
+    </body>
+
+</html>
